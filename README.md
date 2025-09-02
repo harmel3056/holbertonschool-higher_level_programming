@@ -1,0 +1,1 @@
+This week we're learning about Python and how to use VS Code with Docker
