@@ -1,0 +1,52 @@
+# Bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+env/
+.venv/
+venv/
+ENV/
+
+# Editor and OS artifacts
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
+.DS_Store
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Test output
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter and notebooks
+.ipynb_checkpoints/
+
+# Docker
+*.pid
+*.db
+*.sqlite3
+__docker_volume__/
+
+# Environment variables
+.env
+.env.*
+
+# MyPy, Pyright, etc.
+.mypy_cache/
+.pyright/
+.pyre/
