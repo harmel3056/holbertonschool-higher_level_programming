@@ -7,4 +7,3 @@ if __name__ == "__main__":
     c = add_func.add(a, b)
 
     print("{} + {} = {}".format(a, b, c))
-        
