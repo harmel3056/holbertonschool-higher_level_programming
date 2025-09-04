@@ -17,4 +17,4 @@ def print_args(*argv):
 
 
 if __name__ == "__main__":
-    print_args(sys.argv[1:])
+    print_args(*sys.argv[1:])
