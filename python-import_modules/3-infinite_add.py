@@ -2,12 +2,10 @@
 import sys
 
 
-def add_args():
-    args = sys.argv[1:]
-    
-    int_args = [int(arg) for arg in args]
+def add_args(argv):
+    int_args = [int(arg) for arg in argv]
     print(sum(int_args))
 
 
 if __name__ == "__main__":
-    add_args()
+    print(*sys.argv[1:])
