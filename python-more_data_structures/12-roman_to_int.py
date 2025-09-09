@@ -22,9 +22,13 @@ def roman_to_int(roman_string):
         "XVIII": 18,
         "XIX": 19,
         "XX": 20,
+        "XXI": 21,
         "L": 50,
         "LXXXVII": 87,
+        "LXXXIX": 89,
+        "XCIX": 99,
         "C": 100,
+        "CXXIV": 124,
         "D": 500,
         "DCCVII": 707,
         "M": 1000
