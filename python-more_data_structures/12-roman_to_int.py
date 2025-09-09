@@ -35,6 +35,4 @@ def roman_to_int(roman_string):
         "": 0
     }
 
-    for key in roman_dictionary:
-        if roman_string == key:
-            return roman_dictionary[key]
+    return roman_dictionary.get(roman_string, 0)
