@@ -31,7 +31,8 @@ def roman_to_int(roman_string):
         "CXXIV": 124,
         "D": 500,
         "DCCVII": 707,
-        "M": 1000
+        "M": 1000,
+        "": 0
     }
 
     for key in roman_dictionary:
