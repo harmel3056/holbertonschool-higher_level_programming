@@ -6,4 +6,4 @@ def raise_exception():
     try:
         print(x / y)
     except TypeError:
-        print("Exception raised")
+        print("Exception has been raised")
