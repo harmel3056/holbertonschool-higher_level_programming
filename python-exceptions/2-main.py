@@ -11,5 +11,5 @@ my_list = [1, 2, 3, "School", 4, 5, [1, 2, 3]]
 nb_print = safe_print_list_integers(my_list, len(my_list))
 print("nb_print: {:d}".format(nb_print))
 
-nb_print = safe_print_list_integers(my_list, len(my_list) + 2)
+nb_print = safe_print_list_integers(my_list, len(my_list) + 4)
 print("nb_print: {:d}".format(nb_print))
