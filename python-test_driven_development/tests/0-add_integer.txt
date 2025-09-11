@@ -7,7 +7,7 @@ Using ``add_integer``
 
 First, import ``add_integer`` from the ``0-add_integer`` file:
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add = __import__('0-add_integer').add_integer
 
 Tests:
 
