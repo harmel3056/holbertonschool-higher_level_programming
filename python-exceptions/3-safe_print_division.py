@@ -5,7 +5,7 @@ def safe_print_division(a, b):
     try:
         result = a / b
     except (ZeroDivisionError):
-        pass
+        pass # This should be 'raise' according to Adrian. I didn't run it but worth considering next time
     finally:
         print("Inside result: {}".format(result))
         return result
