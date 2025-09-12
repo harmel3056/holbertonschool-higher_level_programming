@@ -32,4 +32,4 @@ def text_indentation(text):
             new_text += "\n\n"
             skip_space = True
 
-    print(new_text.strip())
+    print(new_text.strip(), end="")
