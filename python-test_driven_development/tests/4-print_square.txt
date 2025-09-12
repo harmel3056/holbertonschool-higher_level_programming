@@ -1,0 +1,47 @@
+The ``print_square`` module
+======================
+
+Using ``print_square``
+-------------------
+
+Firstly, import ``print_square`` from the `4-print_square.py`` file:
+
+    >>> square = __import__('4-print_square').print_square
+
+Tests:
+
+    >>> square(4)
+    ####
+    ####
+    ####
+    ####
+
+    >>> square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+    Test - size is not int
+    >>> square("Yooo")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    Test - size is below 0
+    >>> square(-12)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+    Test - size is a float and is less than 0
+    >>> square(-3.333)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
