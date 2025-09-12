@@ -1,0 +1,39 @@
+The ``text_indentation`` module
+======================
+
+Using ``text_indentation``
+-------------------
+
+Firstly, import ``text_indentation`` from the `5-text_indentation.py`` file:
+
+    >>> indent = __import__('5-text_indentation').text_indentation
+
+Tests:
+
+    >>> indent("What? How are you. Really     ")
+    What.
+
+    How are you?
+
+    Really
+
+    >>> indent("   Yes: Thanks:")
+    Yes:
+
+    Thanks:
+
+    Test - text is not string
+    >>> indent(522)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    Test - no punctuation used
+    >>> indent("Hello how are you")
+    Hello how are you
+
+    Test - no arguments entered
+    >>> indent()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
