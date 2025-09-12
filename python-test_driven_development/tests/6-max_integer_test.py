@@ -13,6 +13,16 @@ class TestMaxInteger(unittest.TestCase):
         input = [-2, -4, -6, -8]
         expected = -2
         self.assertEqual(max_integer(input), expected)
+    
+    def test_max_at_end(self):
+        input = [3, 5, 1, 20]
+        expected = 20
+        self.assertEqual(max_integer(input), expected)
+    
+    def test_list_one_element(self):
+        input = [20]
+        expected = 20
+        self.assertEqual(max_integer(input), expected)
 
     def test_zero_arguments(self):
         input = [0, 0, 0, 0]
