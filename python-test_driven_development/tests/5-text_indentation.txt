@@ -11,15 +11,15 @@ Firstly, import ``text_indentation`` from the `5-text_indentation.py`` file:
 Tests:
 
     >>> indent("What? How are you. Really     ")
-    What.
-
-    How are you?
-
+    What?
+    <BLANKLINE>
+    How are you.
+    <BLANKLINE>
     Really
 
     >>> indent("   Yes: Thanks:")
     Yes:
-
+    <BLANKLINE>
     Thanks:
 
     Test - text is not string
