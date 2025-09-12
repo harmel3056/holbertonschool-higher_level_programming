@@ -1,0 +1,45 @@
+The ``matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+Firstly, import ``matrix_divided`` from the ``2-matrix_divided.py`` file:
+
+    >>> divmat = __import__('2-matrix_divided').matrix_divided
+
+Tests:
+
+    >>> divmat([[2, 4], [6,8]], div=2)
+    [[1.0, 2.0], [3.0, 4.0]]
+
+    >>> divmat([[2.44, 4.44], [6.44, 8.44]], div=2)
+    [[1.22, 2.22], [3.22, 4.22]]
+
+    Test - rows of unequal length
+    >>> divmat([[2, 4], [6]], div=2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    Test - matrix contains entries that are not int or float
+    >>> divmat([["Apple", 2], [3, 4]], div=2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test - div is not a number
+    >>> divmat([[1, 2], [3, 4]], div="yolo")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    Test - can't divide by 0
+    >>> divmat([[9, 10], [11, 12]], div=0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    Test - single element matrix
+    >>> divmat([[6]], div=2)
+    [[3.0]]
