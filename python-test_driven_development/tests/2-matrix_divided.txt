@@ -40,6 +40,7 @@ Tests:
     ...
     ZeroDivisionError: division by zero
 
-    Test - single element matrix
-    >>> divmat([[6]], div=2)
-    [[3.0]]
+    Test - accommodatefloat(inf)
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> divmat(matrix, float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]

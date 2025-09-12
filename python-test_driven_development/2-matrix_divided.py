@@ -31,7 +31,7 @@ def matrix_divided(matrix, div):
 
     if div == float("inf") or div == float("-inf"):
         return [[0.0 for _ in row] for row in matrix]
-    
+
     new_matrix = []
     row = 0
     for row in matrix:
