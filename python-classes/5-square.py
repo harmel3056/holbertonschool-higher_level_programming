@@ -35,8 +35,8 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        for qty in range(self.size):
-            if self.size == 0:
-                print()
-            else:
+        if self.size == 0:
+            print()
+        else:
+            for qty in range(self.size):
                 print("#" * self.size)
