@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Rectangle class that gives perimiter and area, and returns
-sick-as hash rectangle. Accommodates eval() with __repr__ too. 
+sick-as hash rectangle. Accommodates eval() with __repr__ too.
 """
 
 
