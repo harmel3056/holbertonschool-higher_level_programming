@@ -18,6 +18,16 @@ class Rectangle(BaseGeometry):
     None
     """
     def __init__(self, width, height):
+        """
+        Specifically validates the input and stores it
+
+        Args:
+        width - width of the rectangle
+        height - height of the rectangle
+
+        Return:
+        None, but validated items are stored
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
