@@ -32,6 +32,10 @@ Tests:
 >>> print(my_list)
 [1, 4, 2]
 
+>>> my_list = MyList([1, 2, -9, 5, 3])
+>>> my_list.print_sorted()
+[-9, 1, 2, 3, 5]
+
 >>> my_list = MyList([5, 5, 5])
 >>> my_list.print_sorted()
 [5, 5, 5]
