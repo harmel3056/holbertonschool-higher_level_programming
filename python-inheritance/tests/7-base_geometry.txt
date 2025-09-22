@@ -19,6 +19,16 @@ Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
 >>> bg.integer_validator("age", {3, 4})
 Traceback (most recent call last):
 ...
@@ -50,3 +60,15 @@ Test: value must be a positive number
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
+
+Test: value must be a positive number
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+Test: value must be a positive number
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
