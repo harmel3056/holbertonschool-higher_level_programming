@@ -17,7 +17,7 @@ def is_same_class(obj, a_class):
     True for an exact match
     False where exact match not found
     """
-    if type(obj) == a_class:
+    if type(obj) is a_class:
         return True
     else:
         return False
