@@ -24,8 +24,10 @@ Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-# True is an int, so this should pass silently
 >>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
 
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
