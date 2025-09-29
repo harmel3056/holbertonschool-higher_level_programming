@@ -17,5 +17,4 @@ def save_to_json_file(my_obj, filename):
     Nothing on its own, will facilitate writing
     """
     with open(filename, "w", encoding="UTF-8") as f:
-        data = f.write(json.dumps(my_obj))
-    return data
+        f.write(json.dumps(my_obj))
