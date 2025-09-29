@@ -16,7 +16,8 @@ def read_file(filename=""):
     """
     with open(filename, "r", encoding="UTF-8") as f:
         data = f.read()
-    print(data)
+    print(f"{data}", end="")
+#    print(len(data))
 
 
 if __name__ == "__main__":
