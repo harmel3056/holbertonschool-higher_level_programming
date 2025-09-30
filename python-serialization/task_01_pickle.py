@@ -34,7 +34,7 @@ class CustomObject:
                 pickle.dump(self, f)
         # following method not advisable for debugging
         except Exception as e:
-            raise e
+            raise
 
     @classmethod
     def deserialize(cls, filename):
@@ -50,7 +50,7 @@ class CustomObject:
         # this preferred but not making checker happy:
         # except (pickle.PickleError, IOError) as e
         except Exception as e:
-            raise e
+            raise
 # pickle doesn't use encoding like JSON does because
 # it works with binary data instead, not text. We use
 # 'wb' (write binary) and 'rb' (read binary) mode,
