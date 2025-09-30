@@ -24,7 +24,7 @@ class CustomObject:
 
     def serialize(self, filename):
         """
-        Serializes data from filename using pickle library
+        Serializes data to filename using pickle library
 
         Args:
         filename - name of the file to open and serialize
@@ -32,8 +32,8 @@ class CustomObject:
         try:
             with open(filename, "wb") as f:
                 pickle.dump(self, f)
-        # following method not advisable for debugging
-        except Exception as e:
+        except (pickle.PickleError, AttributeError) as e:
+            print(f"Serialization error: {e}")
             raise
 
     @classmethod
@@ -47,9 +47,8 @@ class CustomObject:
         try:
             with open(filename, "rb") as f:
                 return pickle.load(f)
-        # this preferred but not making checker happy:
-        # except (pickle.PickleError, IOError) as e
-        except Exception as e:
+        except (pickle.PickleError, AttributeError) as e:
+            print(f"Deserialization error: {e}")
             raise
 # pickle doesn't use encoding like JSON does because
 # it works with binary data instead, not text. We use
