@@ -32,7 +32,7 @@ class Student:
         Takes values from json dict and writes them to
         existing Student class
         """
-        for key, value in json.items:
+        for key, value in json.items():
             if key in self.__dict__:
                 setattr(self, key, value)
 
