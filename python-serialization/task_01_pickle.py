@@ -47,7 +47,7 @@ class CustomObject:
         try:
             with open(filename, "rb") as f:
                 return pickle.load(f)
-        except Exception as e:
+        except (EOFError, pickle.UnpicklingError) as e:
             print(f"Deserialization error: {e}")
             raise
 # pickle doesn't use encoding like JSON does because
