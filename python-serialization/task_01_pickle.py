@@ -49,7 +49,7 @@ class CustomObject:
                 return pickle.load(f)
         except (EOFError, pickle.UnpicklingError) as e:
             print(f"Deserialization error: {e}")
-            raise
+            return None
 # pickle doesn't use encoding like JSON does because
 # it works with binary data instead, not text. We use
 # 'wb' (write binary) and 'rb' (read binary) mode,
