@@ -17,10 +17,11 @@ def convert_csv_to_json(filename):
     True if conversion is successful, False if exception raised
     """
     try:
-        with open(filename, "r", encoding="UTF-8") as f:
-            dictionary = csv.DictReader(f)
-            for row in dictionary:
-                f.write(json.dumps(row))
+        with open(filename, "r", encoding="UTF-8") as infile:
+            dictionary = csv.DictReader(infile)
+            with open("data.json", "w") as outfile:
+                for row in dictionary:
+                        outfile.write(json.dumps(row))
             return True
     except Exception:
         return False
