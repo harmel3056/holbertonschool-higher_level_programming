@@ -20,7 +20,7 @@ def convert_csv_to_json(filename):
         with open(filename, "r", encoding="UTF-8") as infile:
             data = list(csv.DictReader(infile))
             with open("data.json", "w", encoding="UTF-8") as outfile:
-               (json.dump(data, outfile))
+               json.dump(data, outfile)
             return True
     except Exception:
         return False
