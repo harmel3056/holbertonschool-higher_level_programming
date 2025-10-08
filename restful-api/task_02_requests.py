@@ -5,6 +5,7 @@ Exploring post retrieval methods using requests
 import requests
 import csv
 
+
 def fetch_and_print_posts():
     """
     Retrieves posts and prints the status code followed
@@ -15,13 +16,12 @@ def fetch_and_print_posts():
 
     print(f"Status code: {response.status_code}")
 
-
     if response.status_code == 200:
         data = response.json()
 
         for title in [post['title'] for post in data]:
             print(title)
-#fetch_and_save_posts():
+# fetch_and_save_posts():
 
 
 def fetch_and_print_posts():
@@ -35,7 +35,8 @@ def fetch_and_print_posts():
         data = response.json()
 
         rows = [
-            {'id': post['id'], 'title': post['title'], 'userId': post['userId']}
+            {'id': post['id'], 'title': post['title'],
+             'userId': post['userId']}
             for post in data
         ]
 
@@ -43,4 +44,4 @@ def fetch_and_print_posts():
             writer = csv.DictWriter(file, fieldnames=["id", "title", "userId"])
             writer.writeheader()
             writer.writerows(rows)
-#fetch_and_print_posts()
+# fetch_and_print_posts()
