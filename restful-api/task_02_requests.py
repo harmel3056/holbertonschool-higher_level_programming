@@ -36,12 +36,12 @@ def fetch_and_save_posts():
 
         rows = [
             {'id': post['id'], 'title': post['title'],
-             'userId': post['userId']}
+             'body': post['userId']}
             for post in data
         ]
 
         with open("posts.csv", "w", newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=["id", "title", "userId"])
+            writer = csv.DictWriter(file, fieldnames=["id", "title", "body"])
             writer.writeheader()
             writer.writerows(rows)
-# fetch_and_print_posts()
+fetch_and_save_posts()
