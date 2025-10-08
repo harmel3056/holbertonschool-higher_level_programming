@@ -21,10 +21,10 @@ def fetch_and_print_posts():
 
         for title in [post['title'] for post in data]:
             print(title)
-# fetch_and_save_posts():
+# fetch_and_print_posts():
 
 
-def fetch_and_print_posts():
+def fetch_and_save_posts():
     """
     Retrieves posts and converts them to CSV format
     """
