@@ -13,7 +13,8 @@ users_data = {}
 
 @app.route("/")
 def home():
-    return Response("Welcome to the Flask API!", status=200, mimetype="text/plain")
+    return Response("Welcome to the Flask API!",
+                    status=200, mimetype="text/plain")
 
 
 @app.route("/data")
@@ -38,15 +39,20 @@ def get_user(username):
 @app.route("/add_user", methods=["POST"])
 def add_user():
     parsed = request.get_json()
+    username = parsed.get("username")
 
-    if "username" not in parsed or not parsed["username"]:
+    # if "username" not in parsed or not parsed["username"]:
+    if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    users_data[parsed["username"]] = {
-        "name": parsed["name"],
-        "age": parsed["age"],
-        "city": parsed["city"]
-    }
+    # users_data[parsed["username"]] = {
+    #     "name": parsed["name"],
+    #     "age": parsed["age"],
+    #     "city": parsed["city"]
+    # }
+
+    users_data[username] = parsed
+
     return jsonify({
         "message": "User added successfully",
         "user": users_data[parsed["username"]]
