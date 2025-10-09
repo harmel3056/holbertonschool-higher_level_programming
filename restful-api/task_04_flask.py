@@ -41,21 +41,14 @@ def add_user():
     parsed = request.get_json()
     username = parsed.get("username")
 
-    # if "username" not in parsed or not parsed["username"]:
     if not username:
         return jsonify({"error": "Username is required"}), 400
-
-    # users_data[parsed["username"]] = {
-    #     "name": parsed["name"],
-    #     "age": parsed["age"],
-    #     "city": parsed["city"]
-    # }
 
     users_data[username] = parsed
 
     return jsonify({
-        "message": "User added successfully",
-        "user": users_data[parsed["username"]]
+        "message": "User added",
+        "user": parsed
     }), 201
 
 
