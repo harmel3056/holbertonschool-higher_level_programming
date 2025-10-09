@@ -13,7 +13,7 @@ users_data = {}
 
 @app.route("/")
 def home():
-    return "<p>Welcome to the Flask API!</p>"
+    return Response("Welcome to the Flask API!", status=200, mimetype="text/plain")
 
 
 @app.route("/data")
