@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 """
+Basic API with a focus on Security and Authentication tecniques
 """
-import requests
-import json
-
 from flask import Flask
+from flask import request, jsonify
+
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import get_jwt_identity, get_jwt
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
@@ -18,45 +17,69 @@ app.config["JWT_SECRET_KEY"] = "dev-secret-1234-xyz"
 jwt = JWTManager(app)
 auth = HTTPBasicAuth()
 
-User = {
-    "john": generate_password_hash("hello"),
-    "susan": generate_password_hash("bye")
+users = {
+    "user1": {
+        "username": "user1",
+        "password": generate_password_hash("password"),
+        "role": "user"
+    },
+
+    "admin1": {
+        "username": "admin1",
+        "password": generate_password_hash("admin_password"),
+        "role": "admin"
+    }
 }
-
-@app.route('/private')
-@auth.login_required
-def private():
-    return "Welcome!"
-
-@app.login('/login', methods = ['POST'])
-def login():
-    username = request.json.get("username", None)
-    password = request.json.get("password", None)
-    user = User.query.filter_by(username=username).first()
-
-    if not user or not user.check_password(password):
-        return jsonify({"msg": "Bad username or password"}), 401
-
-    access_token = create_access_token(identity=username)
-    return jsonify(access_token=access_token)
-
-
-@app.route("/dashboard")
-@jwt_required()
-def dashboard():
-    user = get_jwt_identity()
-    return jsonify(message=f"Welcome back, {user}")
-
-
-
-
-
-
-
-
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and \
-            check_password_hash(users.get(username), password):
+    user = users.get(username)
+    if user and check_password_hash(user["password"], password):
         return username
+
+@app.route('/basic-protected', methods = ['GET'])
+@auth.login_required
+def basic_protected():
+    return "Basic Auth: Access Granted"
+
+@app.route('/login', methods = ['POST'])
+def login():
+    #takes input from POST
+    username = request.json.get("username", None)
+    password = request.json.get("password", None)
+    user = users.get(username)
+
+    if not username or not password:
+        return jsonify({"msg": "Username and password required"}), 401
+
+    if not user:
+        return jsonify({"msg": "Username or password not identified"}), 401
+    
+    if user and check_password_hash(user["password"], password):
+        access_token = create_access_token(
+            identity=username,
+            additional_claims={"role": user["role"]}
+            )
+        return jsonify(access_token=access_token)
+
+    else:
+        return jsonify({"msg": "Invalid credentials"}), 401
+
+
+@app.route("/jwt-protected", methods = ['GET'])
+@jwt_required()
+def jwt_protected():
+    return jsonify({"msg": "JWT Auth: Access Granted"})
+
+@app.route("/admin-only", methods = ['GET'])
+@jwt_required()
+def admin_only():
+    current_user = get_jwt()
+    if current_user.get("role") == "admin":
+        return jsonify({"msg": "Admin Access: Granted"})
+    else:
+        return jsonify({"error": "Admin access required"}), 403
+
+
+if __name__ == "__main__":
+    app.run()
