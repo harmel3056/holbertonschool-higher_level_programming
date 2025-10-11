@@ -44,6 +44,7 @@ def basic_protected():
 
 @app.route('/login', methods = ['POST'])
 def login():
+
     #takes input from POST
     username = request.json.get("username", None)
     password = request.json.get("password", None)
@@ -93,7 +94,7 @@ def jwt_protected():
 @app.route("/admin-only", methods = ['GET'])
 @jwt_required()
 def admin_only():
-    current_user = get_jwt()
+    current_user = get_jwt_identity()
     if current_user.get("role") == "admin":
         return "Admin Access: Granted"
     else:
