@@ -26,7 +26,7 @@ users = {
 
     "admin1": {
         "username": "admin1",
-        "password": generate_password_hash("admin_password"),
+        "password": generate_password_hash("password"),
         "role": "admin"
     }
 }
@@ -58,8 +58,8 @@ def login():
     
     if user and check_password_hash(user["password"], password):
         access_token = create_access_token(
-            identity=username,
-            additional_claims={"role": user["role"]}
+            identity={"username": username,
+                      "role": user["role"]}
             )
         return jsonify(access_token=access_token)
 
@@ -97,8 +97,9 @@ def admin_only():
     current_user = get_jwt_identity()
     if current_user.get("role") != "admin":
         return jsonify({"error": "Admin access required"}), 403
-
-    return "Admin Access: Granted"
+    else:
+        return "Admin Access: Granted"
+        
 
 
 if __name__ == "__main__":
