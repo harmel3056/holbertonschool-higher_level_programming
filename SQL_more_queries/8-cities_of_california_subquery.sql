@@ -1,4 +1,4 @@
 -- Lists cities in a database
-SELECT * FROM cities
+SELECT id, name FROM cities
 WHERE state_id = 1
-ORDER BY name ASC;
+ORDER BY cities.id ASC;
