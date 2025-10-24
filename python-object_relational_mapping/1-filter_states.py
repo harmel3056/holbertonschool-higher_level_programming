@@ -1,7 +1,5 @@
-#!/usr/bin/python3
 """
 Filters database results for names starting with N by:
-Taking 3 arguments: MySQL
 """
 import MySQLdb
 import sys
@@ -15,12 +13,11 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute(
-        "SELECT * FROM states "
-        # LEFT targets leftmost chars of desired qty
-        "WHERE LEFT(name, 1) = %s "
-        "ORDER BY id ASC"
-        )
+    query = """
+        SELECT * FROM states
+        WHERE LEFT(name, 1) = %s
+        ORDER BY id ASC
+        """
     cursor.execute(query, ('N',))
 
     rows = cursor.fetchall()
