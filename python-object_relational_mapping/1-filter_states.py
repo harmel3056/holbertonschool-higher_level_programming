@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """
 Filters database results for names starting with N by:
 """
@@ -19,7 +18,7 @@ if __name__ == "__main__":
         WHERE name LIKE BINARY %s
         ORDER BY id ASC
         """
-    cursor.execute(query, ('N',))
+    cursor.execute(query, ('N%',))
 
     rows = cursor.fetchall()
     for row in rows:
