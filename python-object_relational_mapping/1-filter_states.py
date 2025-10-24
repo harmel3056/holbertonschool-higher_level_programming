@@ -1,4 +1,4 @@
-#!/us/bin/python3
+#!/usr/bin/python3
 """
 Filters database results for names starting with N by:
 """
