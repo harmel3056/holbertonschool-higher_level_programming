@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     query = """
         SELECT * FROM states
-        WHERE LEFT(name, 1) = %s
+        WHERE name LIKE BINARY %s
         ORDER BY id ASC
         """
     cursor.execute(query, ('N',))
