@@ -1,4 +1,4 @@
-#!/root/venvs/sql_env/bin/python3
+#!/usr/bin/python3
 """
 Extracts values matching a name argument passed
 """
@@ -17,12 +17,12 @@ if __name__ == "__main__":
     )
 
     cursor = db.cursor()
-    query = """
-        SELECT * FROM states
-        WHERE name = %s
-        ORDER BY id ASC
-        """
-    cursor.execute(query, (state_name_searched,))
+    query = (
+        "SELECT * FROM states "
+        "WHERE name = '{}' "
+        "ORDER BY id ASC"
+    ).format(state_name_searched)
+    cursor.execute(query)
 
     rows = cursor.fetchall()
     for row in rows:
