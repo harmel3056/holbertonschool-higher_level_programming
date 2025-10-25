@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Establishes a class definition for State
 """
@@ -9,6 +9,9 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    'State' class which contains id and name
+    """
     __tablename__ = 'states'
     # nullable=False not necessary for PRIMARY KEYS
     id = Column(Integer, primary_key=True, autoincrement=True)
