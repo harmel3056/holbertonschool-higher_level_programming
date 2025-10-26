@@ -20,7 +20,7 @@ if __name__ == '__main__':
     session = Session()
 
     state = session.query(State).filter(
-        State.name.contains(sys.argv[4])).order_by(State.id).all()
+        State.name == sys.argv[4]).order_by(State.id).all()
     if state:
         for row in state:
             print(f"{row.id}")
