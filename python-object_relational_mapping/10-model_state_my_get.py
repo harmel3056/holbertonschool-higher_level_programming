@@ -21,7 +21,9 @@ if __name__ == '__main__':
 
     state = session.query(State).filter(
         State.name.contains(sys.argv[4])).order_by(State.id).all()
-    for row in state:
-        print(f"{row.id}: {row.name}")
+    if state:
+        print(f"{row.id}")
+    else:
+        print("Not found")
 
     session.close()
