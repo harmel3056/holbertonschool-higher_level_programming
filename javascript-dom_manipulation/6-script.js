@@ -10,9 +10,9 @@
 
     const data = await response.json();
     const name = data.name;
-    const TagId = document.getElementById('character');
+    const tagId = document.getElementById('character');
 
-    TagId.textContent = name;
+    tagId.textContent = name;
   } catch (error) {
     console.error(error);
   }

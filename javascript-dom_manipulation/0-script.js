@@ -1,4 +1,4 @@
 // Changes the colour of <header> text
-const ColourChange = document.querySelector('header');
+const colourChange = document.querySelector('header');
 
-ColourChange.style.color = '#FF0000';
+colourChange.style.color = '#FF0000';
