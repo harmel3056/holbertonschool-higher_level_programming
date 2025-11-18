@@ -253,5 +253,5 @@ def modify_list(lst):
 
 my_list = [1, 2, 3]
 modify_list(my_list)
-print(my_list)  # [1, 2, 3, 4] - Changed in place
+print(my_list)  # [1, 2, 3, 4] # Changed in place
 ```
