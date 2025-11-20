@@ -13,12 +13,15 @@ def generate_invitations(template, attendees):
     or not isinstance(attendees, list)
     or not all(isinstance(item, dict) for item in attendees)
     ):
-        raise TypeError('Invalid input: expected a string template and a list of dictionaries.')
+        print('Invalid input: expected a string template and a list of dictionaries.')
+        return
 
     if not template:
-        raise ValueError('Template is empty, no output files generated.')
+        print('Template is empty, no output files generated.')
+        return
     if not attendees:
-        raise ValueError('No data provided, no output files generated.')
+        print('No data provided, no output files generated.')
+        return
 
     for index, item in enumerate(attendees, start=1):   # loops through attendees
         invite_template = template[:]                   # creates a copy of the template
