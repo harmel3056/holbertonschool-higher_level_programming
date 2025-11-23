@@ -136,7 +136,14 @@ If one required interning for their project, they would be best advised to apply
 
 ### Small Integer Caching and Pre-allocation
 
-Python pre-allocates small integers as an optimization. When CPython starts, it creates integer objects for commonly used values and reuses them throughout the program's lifetime. Specifically, integers in the range -5 to 256 are pre-created and always refer to the same object in memory. It uses this specific range because these are the most commonly used integers in typical programs (loop counters, array indices, small calculations, etc.), so this optimisation is effective for a large number of programs.
+Python pre-allocates small integers as an optimization. When CPython starts, it creates integer objects for commonly used values and reuses them throughout the program's lifetime. This is controlled by two constants:
+
+- **`NSMALLNEGINTS`** = 5 (integers from -5 to -1)
+- **`NSMALLPOSINTS`** = 257 (integers from 0 to 256)
+
+This means integers in the range **-5 to 256** are pre-created and always refer to the same object in memory.
+
+**Why these specific values?** These are statistically the most commonly used integers in typical programs (loop counters, array indices, small calculations, etc.), making this optimization highly effective.
 
 **Example:**
 ```python
